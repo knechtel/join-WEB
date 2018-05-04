@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>Portal Join</h1>
+
+	<h:form>
+		<table>
+		<tr>
+			<td><h:commandLink action="#{pessoaBean.doCadPfisica()}"
+					value="Caddastro Pessoa Fisica 	" /></td>
+		</tr>
+		<tr>
+				<td><h:commandLink action="#{pessoaBean.doCadJuridica()}"
+					value="Cadastro Pessoa Juridica" />
+			</td>
+			</tr>
+			<tr>
+				<td><h:commandLink action="#{pessoaBean.doDependentes()}"
+						value="Cadastro de dependentes" />
+			 	</td>
+			</tr>
+	
+			</table>
+	</h:form>
+
+</h:body>
+</html>

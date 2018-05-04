@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>Cadastro de pessoa Juridica</h1>
+
+	<h:form>
+
+	<table>
+  <tr>
+    <td>Nome:</td>
+    <th> <h:inputText value="#{pessoaBean.pessoa.nome}" /></th> 
+  </tr>
+  <tr>
+    <td>Municipio:</td>
+    <th> <h:inputText value="#{pessoaBean.pessoa.municipio}" /></th> 
+  </tr>
+    <tr>
+    <td>UF:</td>
+    <th> <h:inputText value="#{pessoaBean.pessoa.uf}" /></th> 
+  </tr>
+</table>
+	<h:commandButton action="#{pessoaBean.cadastra()}" value="Enviar" />
+	
+	
+	</h:form>	
+
+</h:body>
+</html>
