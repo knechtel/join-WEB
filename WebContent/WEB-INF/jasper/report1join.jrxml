@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1join" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e45e9f85-f22e-4c5e-997e-fd045c3d4604">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/Users/maiquelknechtel/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select pessoa.id,pessoaFisica.cpf,pessoa.dataNascimento,pessoa.municipio, pessoa.nome,dependente.nomeDependente, pessoa.uf
+
+ from pessoa
+join pessoaFisica   on pessoa.id = pessoaFisica.pessoa_id
+join dependente     on pessoa.id = dependente.pessoaFisica_pessoa_id ;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="cpf" class="java.lang.String"/>
+	<field name="dataNascimento" class="java.sql.Timestamp"/>
+	<field name="municipio" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="nomeDependente" class="java.lang.String"/>
+	<field name="uf" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="b29be80b-dc30-471a-a183-d66fbeb17a8b" x="19" y="27" width="515" height="29"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "report1join_subreportPessoaJuridica.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement uuid="db0a7817-00e1-4347-8217-eeb6ab799f53" x="0" y="56" width="100" height="1"/>
+			</break>
+			<rectangle>
+				<reportElement uuid="c801ccb3-807e-4563-9a43-b3484cdaf97a" x="0" y="0" width="553" height="17" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="ddc1afce-86f7-439d-a6bd-564e4e855ba0" x="19" y="0" width="218" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Pessoa Juridica]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="c801ccb3-807e-4563-9a43-b3484cdaf97a" x="0" y="15" width="553" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="ddc1afce-86f7-439d-a6bd-564e4e855ba0" x="19" y="15" width="218" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Pessoa Fisica e Dependentes ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="11f022e2-800c-436f-a772-a6a18907067f" x="0" y="0" width="38" height="20"/>
+				<textElement/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4c63c0ae-3a32-443c-837d-da8428ed35de" x="38" y="0" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[CPF responsável]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d48c9bb3-5507-45f2-b523-2f06c437e78e" x="123" y="0" width="102" height="20"/>
+				<textElement/>
+				<text><![CDATA[Data de nascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5b1a3d82-e962-436b-b350-6f78b033b4e3" x="225" y="0" width="91" height="20"/>
+				<textElement/>
+				<text><![CDATA[Municipio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="99bbdbb8-c400-4b91-b529-59799b7aa478" x="291" y="0" width="67" height="20"/>
+				<textElement/>
+				<text><![CDATA[Responsável]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="754a4d8e-81ba-415c-a7c3-72ce5354a9ab" x="374" y="0" width="109" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nome do dependente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f1828e51-0f8a-4cb1-b6a6-54e11f05918d" x="495" y="0" width="58" height="20"/>
+				<textElement/>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e69263d0-2136-4457-8c77-c6a13d77c696" x="0" y="0" width="38" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ced9218d-3f98-4577-9d4c-db9e7395fcf5" x="38" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fd374776-2f03-4660-8ad5-0f6ab2d3fd43" x="138" y="0" width="72" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0cbdec8e-4d7f-4845-832b-a0dfa5b28199" x="225" y="0" width="81" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{municipio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e8dceffa-263d-4017-93f7-3fa5841ee993" x="306" y="0" width="68" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="529ef8c8-5a9f-4910-a08d-4b9902b0fd82" x="374" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomeDependente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1fa20993-14e9-4a10-a0b4-2cdf135c4c46" x="493" y="0" width="60" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{uf}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

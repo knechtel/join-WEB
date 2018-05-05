@@ -17,21 +17,60 @@
 	<table>
   <tr>
     <td>Nome:</td>
-    <th> <h:inputText value="#{pessoaFisicaBean.pessoa.nome}" /></th> 
+    <th> <p:inputText value="#{pessoaFisicaBean.pessoa.nome}" /></th> 
   </tr>
   <tr>
     <td>Municipio:</td>
-    <th> <h:inputText value="#{pessoaFisicaBean.pessoa.municipio}" /></th> 
+    <th> <p:inputText value="#{pessoaFisicaBean.pessoa.municipio}" /></th> 
   </tr>
     <tr>
     <td>UF:</td>
-    <th> <h:inputText value="#{pessoaFisicaBean.pessoa.uf}" /></th> 
+    <th> <p:inputText value="#{pessoaFisicaBean.pessoa.uf}" /></th> 
   </tr>
+  
+      <tr>
+    <td>CPF:</td>
+    <th> <p:inputText value="#{pessoaFisicaBean.pessoaFisica.cpf}" /></th> 
+  </tr>
+  
+  <tr>
+						<td>Data de nascimento</td>
+						<td><p:calendar id="button"
+								value="#{pessoaFisicaBean.pessoa.dataNascimento}" pattern="dd/MM/yyyy"
+								showOn="button" /></td>
+					</tr>
 </table>
-	<h:commandButton action="#{pessoaFisicaBean.cadastra()}" value="Enviar" />
-	
+	<h:commandButton action="#{pessoaFisicaBean.create()}" value="Enviar" />
+	<input type="hidden" name="versao" value="#{pessoaFisicaBean.pessoa.versao}"/>
 	
 	</h:form>	
-
+	<script type="text/javascript">
+				PrimeFaces.locales['pt'] = {
+					closeText: 'Fechar',
+					prevText: 'Anterior',
+					nextText: 'Próximo',
+					currentText: 'Começo',
+					monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+					monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+					dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+					dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+					dayNamesMin: ['D','S','T','Q','Q','S','S'],
+					weekHeader: 'Semana',
+					firstDay: 0,
+					isRTL: false,
+					showMonthAfterYear: false,
+					yearSuffix: '',
+					timeOnlyTitle: 'Só Horas',
+					timeText: 'Tempo',
+					hourText: 'Hora',
+					minuteText: 'Minuto',
+					secondText: 'Segundo',
+					ampm: false,
+					month: 'Mês',
+					week: 'Semana',
+					day: 'Dia',
+					allDayText : 'Todo o Dia'
+				}
+			</script>
 </h:body>
 </html>

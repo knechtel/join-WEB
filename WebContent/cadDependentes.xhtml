@@ -14,24 +14,34 @@
 
 	<h:form>
 
-	<table>
-  <tr>
-    <td>Nome:</td>
-    <th> <h:inputText value="#{pessoaBean.pessoa.nome}" /></th> 
-  </tr>
-  <tr>
-    <td>Municipio:</td>
-    <th> <h:inputText value="#{pessoaBean.pessoa.municipio}" /></th> 
-  </tr>
-    <tr>
-    <td>UF:</td>
-    <th> <h:inputText value="#{pessoaBean.pessoa.uf}" /></th> 
-  </tr>
-</table>
-	<h:commandButton action="#{pessoaBean.cadastra()}" value="Enviar" />
-	
-	
-	</h:form>	
+		<table>
+
+			<tr>
+				<td>Responsavel:</td>
+				<td><p:selectOneMenu value="#{dependenteBean.idPessoaFisica}"
+						id="paciente">
+						<f:selectItems value="#{dependenteBean.listPessoaFisica}"
+							var="pessoaFisica" itemLabel="#{pessoaFisica.pessoa.nome}"
+							itemValue="#{pessoaFisica.id}" />
+					</p:selectOneMenu></td>
+			</tr>
+			<tr>
+				<td>Nome:</td>
+				<th><p:inputText value="#{dependenteBean.dependente.nomeDependente}" /></th>
+			</tr>
+			<tr>
+				<td>Municipio:</td>
+				<th><p:inputText value="#{dependenteBean.dependente.municipio}" /></th>
+			</tr>
+			<tr>
+				<td>UF:</td>
+				<th><p:inputText value="#{dependenteBean.dependente.uf}" /></th>
+			</tr>
+		</table>
+		<h:commandButton action="#{dependenteBean.create()}" value="Enviar" />
+
+
+	</h:form>
 
 </h:body>
 </html>

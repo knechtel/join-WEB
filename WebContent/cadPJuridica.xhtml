@@ -14,24 +14,73 @@
 
 	<h:form>
 
-	<table>
-  <tr>
-    <td>Nome:</td>
-    <th> <h:inputText value="#{pessoaBean.pessoa.nome}" /></th> 
-  </tr>
-  <tr>
-    <td>Municipio:</td>
-    <th> <h:inputText value="#{pessoaBean.pessoa.municipio}" /></th> 
-  </tr>
-    <tr>
-    <td>UF:</td>
-    <th> <h:inputText value="#{pessoaBean.pessoa.uf}" /></th> 
-  </tr>
-</table>
-	<h:commandButton action="#{pessoaBean.cadastra()}" value="Enviar" />
-	
-	
-	</h:form>	
+		<table>
+			<tr>
+				<td>Nome:</td>
+				<th><p:inputText value="#{pessoaJuridicaBean.pessoa.nome}" /></th>
+			</tr>
+			<tr>
+				<td>Municipio:</td>
+				<th><p:inputText value="#{pessoaJuridicaBean.pessoa.municipio}" /></th>
+			</tr>
+			<tr>
+				<td>UF:</td>
+				<th><p:inputText value="#{pessoaJuridicaBean.pessoa.uf}" /></th>
+			</tr>
+	<tr>
+				<td>CPF:</td>
+				<th><p:inputText
+						value="#{pessoaJuridicaBean.pessoaFisica.cpf}" /></th>
+			</tr>
+			<tr>
+				<td>Razao Social:</td>
+				<th><p:inputText
+						value="#{pessoaJuridicaBean.pessoaJuridica.razaoSocial}" /></th>
+			</tr>
+			<tr>
+				<td>Data Nascimento:</td>
+				<th><p:calendar
+						value="#{pessoaJuridicaBean.pessoa.dataNascimento}"
+						pattern="dd/MM/yyyy" showOn="button" /></th>
+			</tr>
+			<tr>
+				<td>Data fundação:</td>
+				<td><p:calendar id="button"
+						value="#{pessoaJuridicaBean.pessoaJuridica.dataFundacao}"
+						pattern="dd/MM/yyyy" showOn="button" /></td>
+			</tr>
+		</table>
+		<h:commandButton action="#{pessoaJuridicaBean.create()}" value="Enviar" />
 
+
+	</h:form>
+	<script type="text/javascript">
+				PrimeFaces.locales['pt'] = {
+					closeText: 'Fechar',
+					prevText: 'Anterior',
+					nextText: 'Próximo',
+					currentText: 'Começo',
+					monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+					monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+					dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+					dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+					dayNamesMin: ['D','S','T','Q','Q','S','S'],
+					weekHeader: 'Semana',
+					firstDay: 0,
+					isRTL: false,
+					showMonthAfterYear: false,
+					yearSuffix: '',
+					timeOnlyTitle: 'Só Horas',
+					timeText: 'Tempo',
+					hourText: 'Hora',
+					minuteText: 'Minuto',
+					secondText: 'Segundo',
+					ampm: false,
+					month: 'Mês',
+					week: 'Semana',
+					day: 'Dia',
+					allDayText : 'Todo o Dia'
+				}
+			</script>
 </h:body>
 </html>
