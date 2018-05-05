@@ -12,7 +12,7 @@
 <h:body>
 	<h1>cadastro de Dependentes</h1>
 
-	<h:form>
+	<h:form id="form">
 
 		<table>
 
@@ -27,7 +27,8 @@
 			</tr>
 			<tr>
 				<td>Nome:</td>
-				<th><p:inputText value="#{dependenteBean.dependente.nomeDependente}" /></th>
+				<th><p:inputText
+						value="#{dependenteBean.dependente.nomeDependente}" /></th>
 			</tr>
 			<tr>
 				<td>Municipio:</td>
@@ -39,7 +40,61 @@
 			</tr>
 		</table>
 		<h:commandButton action="#{dependenteBean.create()}" value="Enviar" />
+		<br />
+		<br />
+		<p:dataTable var="dependente" paginator="true" selectionmode="on"
+			value="#{dependenteBean.listDependente}">
+			<p:column headerText="Nome dependente">
+				<h:outputText value="#{dependente.nomeDependente}" />
+			</p:column>
+			<p:column headerText="Data de nascimento">
+				<h:outputText value="#{dependente.dataNascimento}" />
+			</p:column>
+			<p:column headerText="Nome responsavel">
+				<h:outputText value="#{dependente.pessoaFisica.pessoa.nome}" />
+			</p:column>
+			<p:column headerText="CPF responsavel">
+				<h:outputText value="#{dependente.pessoaFisica.cpf}" />
+			</p:column>
 
+			<p:column headerText="Municipio">
+				<h:outputText value="#{dependente.municipio}" />
+			</p:column>
+
+			<p:column headerText="Editar">
+				<h:commandLink action="#{dependenteBean.update()}" value="update" />
+			</p:column>
+			<p:column headerText="">
+				<h:commandLink value="Delete"
+					action="#{pacienteBean.deleteExameAction(exame)}" />
+			</p:column>
+			<p:column headerText="Name">
+				<p:commandLink value="#{dependente.nomeDependente}"
+					oncomplete="PF('test').show()" update="form:dialog">
+					<f:setPropertyActionListener target="#{dependenteBean.dependente}"
+						value="#{dependente}" />
+				</p:commandLink>
+			</p:column>
+		</p:dataTable>
+
+
+		<p:dialog modal="true" width="500" height="500" widgetVar="test"
+			id="dialog">
+			<table>
+				<tr>
+					<td>Name :</td>
+					<td><h:inputText
+							value="#{dependenteBean.dependente.nomeDependente}" /></td>
+				</tr>
+				<tr>
+					<td>Municipio :</td>
+					<td><h:inputText value="#{dependenteBean.dependente.municipio}" />
+					</td>
+				</tr>
+				<tr><td>
+				<h:commandButton action="#{dependenteBean.edit()}" value="Enviar" /></td></tr>
+			</table>
+		</p:dialog>
 
 	</h:form>
 
