@@ -12,7 +12,7 @@
 <h:body>
 	<h1>Cadastro de pessoa Juridica</h1>
 
-	<h:form>
+	<h:form id="form">
 
 		<table>
 			<tr>
@@ -27,11 +27,7 @@
 				<td>UF:</td>
 				<th><p:inputText value="#{pessoaJuridicaBean.pessoa.uf}" /></th>
 			</tr>
-	<tr>
-				<td>CPF:</td>
-				<th><p:inputText
-						value="#{pessoaJuridicaBean.pessoaFisica.cpf}" /></th>
-			</tr>
+			
 			<tr>
 				<td>Razao Social:</td>
 				<th><p:inputText
@@ -50,9 +46,37 @@
 						pattern="dd/MM/yyyy" showOn="button" /></td>
 			</tr>
 		</table>
-		<h:commandButton action="#{pessoaJuridicaBean.create()}" value="Enviar" />
+		<h:commandButton action="#{pessoaJuridicaBean.create()}"
+			value="Enviar" />
+		<br />
+		<br />
+		<p:dataTable var="pessoaJuridica" paginator="true"
+			value="#{pessoaJuridicaBean.listPessoaJuridica}">
+			<p:column headerText="Nome">
+				<h:outputText value="#{pessoaJuridica.pessoa.nome}" />
+			</p:column>
+			<p:column headerText="Razao social">
+				<h:outputText value="#{pessoaJuridica.razaoSocial}" />
+			</p:column>
+			<p:column headerText="Municipio">
+				<h:outputText value="#{pessoaJuridica.pessoa.municipio}" />
+			</p:column>
+			<p:column headerText="UF">
+				<h:outputText value="#{pessoaJuridica.pessoa.uf}" />
+			</p:column>
+			<p:column headerText="Delete">
+				<h:commandLink value="Delete"
+					action="#{pessoaJuridicaBean.deleteAction(pessoaJuridica)}" />
+			</p:column>
 
-
+			<p:column headerText="editar">
+				<p:commandLink value="editar" 
+					 action="#{pessoaJuridicaBean.edit(pessoaJuridica)}"/>
+				
+			
+			</p:column>
+		</p:dataTable>
+		
 	</h:form>
 	<script type="text/javascript">
 				PrimeFaces.locales['pt'] = {

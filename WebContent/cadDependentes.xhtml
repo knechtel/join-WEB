@@ -12,7 +12,7 @@
 <h:body>
 	<h1>cadastro de Dependentes</h1>
 
-	<h:form id="form">
+	<h:form>
 
 		<table>
 
@@ -38,6 +38,13 @@
 				<td>UF:</td>
 				<th><p:inputText value="#{dependenteBean.dependente.uf}" /></th>
 			</tr>
+
+			<tr>
+				<td>Data de nascimento</td>
+				<td><p:calendar id="button1"
+						value="#{dependenteBean.dependente.dataNascimento}"
+						pattern="dd/MM/yyyy" showOn="button" /></td>
+			</tr>
 		</table>
 		<h:commandButton action="#{dependenteBean.create()}" value="Enviar" />
 		<br />
@@ -61,40 +68,18 @@
 				<h:outputText value="#{dependente.municipio}" />
 			</p:column>
 
-			<p:column headerText="Editar">
-				<h:commandLink action="#{dependenteBean.update()}" value="update" />
-			</p:column>
-			<p:column headerText="">
+
+			<p:column headerText="Delete">
 				<h:commandLink value="Delete"
-					action="#{pacienteBean.deleteExameAction(exame)}" />
+					 />
 			</p:column>
-			<p:column headerText="Name">
-				<p:commandLink value="#{dependente.nomeDependente}"
-					oncomplete="PF('test').show()" update="form:dialog">
-					<f:setPropertyActionListener target="#{dependenteBean.dependente}"
-						value="#{dependente}" />
-				</p:commandLink>
+			
+			<p:column headerText="editar">
+				<p:commandLink value="Editar" action="#{dependenteBean.doEdit(dependente)}" />
+				
 			</p:column>
 		</p:dataTable>
 
-
-		<p:dialog modal="true" width="500" height="500" widgetVar="test"
-			id="dialog">
-			<table>
-				<tr>
-					<td>Name :</td>
-					<td><h:inputText
-							value="#{dependenteBean.dependente.nomeDependente}" /></td>
-				</tr>
-				<tr>
-					<td>Municipio :</td>
-					<td><h:inputText value="#{dependenteBean.dependente.municipio}" />
-					</td>
-				</tr>
-				<tr><td>
-				<h:commandButton action="#{dependenteBean.edit()}" value="Enviar" /></td></tr>
-			</table>
-		</p:dialog>
 
 	</h:form>
 

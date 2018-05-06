@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>Editar dados pessoais de dependente</h1>
+
+	<h:form >
+
+		<table>
+			<tr>
+				<td>Nome:</td>
+				<th><p:inputText value="#{dependenteBean.dependente.nomeDependente}" /></th>
+			</tr>
+			
+		
+			<tr>
+				<td>Municipio:</td>
+				<th><p:inputText value="#{dependenteBean.dependente.municipio}" /></th>
+			</tr>
+			<tr>
+				<td>UF:</td>
+				<th><p:inputText value="#{dependenteBean.dependente.uf}" /></th>
+			</tr>
+
+	
+
+			<tr>
+				<td>Data de nascimento</td>
+				<td><p:calendar
+						value="#{dependenteBean.dependente.dataNascimento}"
+						pattern="dd/MM/yyyy" showOn="button" /></td>
+			</tr>
+			<tr>
+			<td><h:commandButton action="#{dependenteBean.edit()}" value="Enviar" /></td></tr>
+		</table>
+	</h:form>
+</h:body>
+</html>

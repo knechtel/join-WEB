@@ -11,7 +11,29 @@
 </h:head>
 <h:body>
 	<h1>Cadastrado com sucesso!</h1>
-
+<h:form>
+		<table>
+		<tr>
+			<td><h:commandLink action="#{pessoaBean.doCadPfisica()}"
+					value="Caddastro Pessoa Fisica 	" /></td>
+		</tr>
+		<tr>
+				<td><h:commandLink action="#{pessoaBean.doCadJuridica()}"
+					value="Cadastro Pessoa Juridica" />
+			</td>
+			</tr>
+			<tr>
+				<td><h:commandLink action="#{pessoaBean.doDependentes()}"
+						value="Cadastro de dependentes" />
+			 	</td>
+			</tr>
+	
+		<tr>
+				<td><a href="http://localhost:8080/join-WEB/test.html">Gerar Relatorio</a>
+			 	</td>
+			</tr>
+			</table>
+	</h:form>
 
 </h:body>
 </html>

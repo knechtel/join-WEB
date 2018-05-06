@@ -12,7 +12,7 @@
 <h:body>
 	<h1>Cadastro de Pessoa Fisica</h1>
 
-	<h:form>
+	<h:form id="form">
 
 	<table>
   <tr>
@@ -40,8 +40,39 @@
 								showOn="button" /></td>
 					</tr>
 </table>
-	<h:commandButton action="#{pessoaFisicaBean.create()}" value="Enviar" />
+	<h:commandButton action="#{pessoaFisicaBean.create()}" update="tabela" value="Enviar" />
 	<input type="hidden" name="versao" value="#{pessoaFisicaBean.pessoa.versao}"/>
+	
+		<p:dataTable id="tabela" var="pessoa1" paginator="true" 
+		
+			value="#{pessoaFisicaBean.listPessoaFisica}">
+			<p:column headerText="CPF">
+				<h:outputText value="#{pessoa1.cpf}" />
+			</p:column>
+
+			<p:column headerText="Nome">
+				<h:outputText value="#{pessoa1.pessoa.nome}" />
+			</p:column>
+			
+			<p:column headerText="Municipio">
+				<h:outputText value="#{pessoa1.pessoa.municipio}" />
+			</p:column>
+			
+			<p:column headerText="UF">
+				<h:outputText value="#{pessoa1.pessoa.uf}" />
+			</p:column>
+			
+				<p:column headerText="Delete">
+				<h:commandLink value="Delete"
+					action="#{pessoaFisicaBean.deleteAction(pessoa1)}" />
+			</p:column>
+			<p:column headerText="Editar dados pessoais">
+				<h:commandLink update="tabela" value="Edit"
+					action="#{pessoaFisicaBean.editDadosPessoais(pessoa1)}" />
+			</p:column>
+			
+		</p:dataTable>
+	
 	
 	</h:form>	
 	<script type="text/javascript">
