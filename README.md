@@ -23,7 +23,7 @@ iText-2.1.7.jar
 primefaces-6.2.jar
 
 
-é necessário criar um projeto Enterprise Application Project que contem o projeto join-EJB e projeto join-WEB.
+É necessário criar um projeto Enterprise Application Project que contem o projeto join-EJB e projeto join-WEB.
 
 
 Caso queira criar as tabelas tem um script nesse caminho: join-WEB/src/main/java/tables.SQL
