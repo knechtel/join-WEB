@@ -9,7 +9,7 @@ Deve ser adicionado ao classpath os JARs que estão dentro da pasta lib WEB-INF 
 
 Caso queira criar as tabelas tem um script nesse caminho: join-WEB/src/main/java/tables.SQL
 
-Se quer que a aplicação crie as tabelas para você adicione a notação abaixo ao projeto EJB no persistence.xml
+Eu prefiro que a aplicação crie as tabelas para que isso ocorra adicione a notação abaixo ao projeto EJB no persistence.xml
 
 property name="hibernate.hbm2ddl.auto" value="update"
 
